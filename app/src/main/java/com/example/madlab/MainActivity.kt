@@ -50,6 +50,9 @@ fun MyWeatherApp()
     LaunchedEffect(Unit){
         delay(3000)
     }
+    CitySelectionScreen()
+    WeatherDetailScreen()
+
 }
 
 
@@ -101,20 +104,45 @@ fun CitySelectionScreen()
 fun WeatherDetailScreen()
 {
 
-    Text(text = "Weather Details", Modifier.padding(55.dp))
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = Modifier.fillMaxSize(1f)
     ) {
+        Text(
+            text = "City Name: Karachi",
+            fontWeight = FontWeight.Bold,
+            fontSize = 25.sp
+        )
 
-        Text(text = "City Name: Karachi",
-            fontSize = 25.sp,
-            )
+
+        Row {
+            Image(painter = painterResource(id = R.drawable.baseline_device_thermostat_24), contentDescription = "thermostate" )
+            Column {
+                Text(text = "Temperature")
+                Text(text = "32")
+            }
+        }
+        Row {
+            Image(painter = painterResource(id = R.drawable.baseline_wind_power_24), contentDescription ="wind" )
+            Column {
+                Text(text = "Humidity")
+                Text(text = "32")
+            }
+        }
+        Row {
+            Image(painter = painterResource(id = R.drawable.baseline_sunny_24), contentDescription = "sunny")
+            Column {
+                Text(text = "Condition")
+                Text(text = "32")
+            }
+        }
 
 
     }
 }
+
 
 /*@Composable
 fun TempDetails()
